@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install : 
+  - docker build -t akilaf/docker-react-kt -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true akilaf/docker-react-kt npm run test
